@@ -4,5 +4,26 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mongodb": "^4.7.0"
-  }
+  },
+  "name": "portfolio-server-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "start-dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/protimsaha/portfolio-server-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/protimsaha/portfolio-server-2/issues"
+  },
+  "homepage": "https://github.com/protimsaha/portfolio-server-2#readme",
+  "description": ""
 }
