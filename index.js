@@ -17,6 +17,7 @@ MongoClient.connect(uri, function (err, client) {
         try {
             await client.connect()
             const projectCollection = client.db('portfolio').collection('projects')
+            const reviewCollection = client.db('portfolio').collection('reviews')
 
             app.get('/projects', async (req, res) => {
                 const projects = await projectCollection.find({}).toArray()
@@ -25,10 +26,20 @@ MongoClient.connect(uri, function (err, client) {
 
             app.get('/projects/:id', async (req, res) => {
                 const id = req.params.id
-
                 const query = { _id: ObjectId(id) }
                 const result = await projectCollection.findOne(query)
                 res.send(result)
+            })
+
+            app.post('/reviews', async (req, res) => {
+                const data = req.body;
+                const result = await reviewCollection.insertOne(data)
+                res.send(result)
+            })
+
+            app.get('/reviews', async (req, res) => {
+                const reviews = await reviewCollection.find({}).toArray()
+                res.send(reviews)
             })
 
         } finally {
